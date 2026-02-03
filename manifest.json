@@ -1,0 +1,125 @@
+{
+  "manifest_version": 3,
+  "name": "Watch Together",
+  "version": "1.0.0",
+  "description": "Watch videos together in sync across 12+ streaming platforms",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtube.com/*",
+    "https://www.netflix.com/*",
+    "https://netflix.com/*",
+    "https://www.crunchyroll.com/*",
+    "https://crunchyroll.com/*",
+    "https://static.crunchyroll.com/*",
+    "https://vimeo.com/*",
+    "https://www.vimeo.com/*",
+    "https://player.vimeo.com/*",
+    "https://dailymotion.com/*",
+    "https://www.dailymotion.com/*",
+    "https://animedigitalnetwork.fr/*",
+    "https://www.animedigitalnetwork.fr/*",
+    "https://anime-sama.si/*",
+    "https://www.anime-sama.si/*",
+    "https://twitch.tv/*",
+    "https://www.twitch.tv/*",
+    "https://disneyplus.com/*",
+    "https://www.disneyplus.com/*",
+    "https://primevideo.com/*",
+    "https://www.primevideo.com/*",
+    "https://amazon.com/*",
+    "https://www.amazon.com/*",
+    "https://max.com/*",
+    "https://www.max.com/*",
+    "https://play.max.com/*",
+    "ws://localhost:8080/*",
+    "wss://localhost:8080/*"
+  ],
+  "background": {
+    "service_worker": "background/websocket.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
+      "js": ["content/youtube.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.netflix.com/*", "https://netflix.com/*"],
+      "js": ["content/netflix.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.crunchyroll.com/*", "https://crunchyroll.com/*"],
+      "js": ["content/crunchyroll.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://static.crunchyroll.com/*"],
+      "js": ["content/crunchyroll-player.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://vimeo.com/*", "https://www.vimeo.com/*"],
+      "js": ["content/vimeo.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://dailymotion.com/*", "https://www.dailymotion.com/*"],
+      "js": ["content/dailymotion.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://animedigitalnetwork.fr/*", "https://www.animedigitalnetwork.fr/*"],
+      "js": ["content/adn.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://anime-sama.si/*", "https://www.anime-sama.si/*"],
+      "js": ["content/animesama.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://twitch.tv/*", "https://www.twitch.tv/*"],
+      "js": ["content/twitch.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://disneyplus.com/*", "https://www.disneyplus.com/*"],
+      "js": ["content/disneyplus.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://primevideo.com/*", "https://www.primevideo.com/*", "https://amazon.com/*/video/*", "https://www.amazon.com/*/video/*"],
+      "js": ["content/primevideo.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://max.com/*", "https://www.max.com/*", "https://play.max.com/*"],
+      "js": ["content/max.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Watch Together",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

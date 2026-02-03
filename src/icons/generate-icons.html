@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Icon Generator</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    canvas { border: 1px solid #ccc; margin: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Watch Together Icon Generator</h1>
+  <p>Right-click each canvas and "Save image as" to create the icons.</p>
+  <div id="canvases"></div>
+  <script>
+    const sizes = [16, 32, 48, 128];
+    const container = document.getElementById('canvases');
+
+    sizes.forEach(size => {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      // Background gradient
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#6c5ce7');
+      gradient.addColorStop(1, '#a55eea');
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Play icon
+      ctx.fillStyle = 'white';
+      ctx.beginPath();
+      const playSize = size * 0.4;
+      const offsetX = size * 0.38;
+      const offsetY = size * 0.3;
+      ctx.moveTo(offsetX, offsetY);
+      ctx.lineTo(offsetX, offsetY + playSize);
+      ctx.lineTo(offsetX + playSize * 0.866, offsetY + playSize/2);
+      ctx.closePath();
+      ctx.fill();
+
+      const label = document.createElement('div');
+      label.innerHTML = `<strong>${size}x${size}</strong> - icon${size}.png`;
+      container.appendChild(label);
+      container.appendChild(canvas);
+    });
+  </script>
+</body>
+</html>

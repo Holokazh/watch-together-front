@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch Together</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Watch Together</h1>
+      <div id="status-indicator" class="status-indicator disconnected">
+        <span class="status-dot"></span>
+        <span id="status-text">Disconnected</span>
+      </div>
+    </header>
+
+    <!-- Not in room state -->
+    <section id="not-in-room" class="section">
+      <div class="action-group">
+        <div class="username-group">
+          <label for="username-input">Your name:</label>
+          <div class="username-input-wrapper">
+            <input
+              type="text"
+              id="username-input"
+              placeholder="Loading..."
+              maxlength="20"
+              autocomplete="off"
+            >
+            <button id="randomize-name-btn" class="btn-icon" title="Generate random name">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button id="create-room-btn" class="btn btn-primary">
+          Create Room
+        </button>
+        <div class="divider">or</div>
+        <div class="join-group">
+          <input
+            type="text"
+            id="room-id-input"
+            placeholder="Enter Room ID"
+            maxlength="8"
+            autocomplete="off"
+          >
+          <button id="join-room-btn" class="btn btn-secondary">
+            Join
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- In room state -->
+    <section id="in-room" class="section hidden">
+      <div class="room-info">
+        <div class="room-id-display">
+          <label>Room ID:</label>
+          <span id="current-room-id" class="room-code">--------</span>
+          <button id="copy-room-id" class="btn-icon" title="Copy Room ID">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+          <button id="share-room-btn" class="btn-icon" title="Copy shareable link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="room-stats">
+          <div class="stat">
+            <span class="stat-label">Users:</span>
+            <span id="user-count">1</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Role:</span>
+            <span id="user-role">Guest</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Sync:</span>
+            <span id="sync-status" class="sync-ok">OK</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- User list -->
+      <div class="users-section">
+        <div class="users-header">
+          <span class="users-title">Users in Room</span>
+        </div>
+        <ul id="users-list" class="users-list">
+          <!-- User items will be added dynamically -->
+        </ul>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="room-actions">
+        <button id="force-sync-btn" class="btn btn-sync" title="Force everyone to sync to your current page and playback position">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/>
+          </svg>
+          Force Sync
+        </button>
+        <button id="leave-room-btn" class="btn btn-danger">
+          Leave Room
+        </button>
+      </div>
+    </section>
+
+    <!-- Error display -->
+    <div id="error-display" class="error hidden"></div>
+
+    <footer>
+      <p class="support-info">Supports: YouTube, Netflix, Crunchyroll</p>
+      <a href="https://paypal.me/VirgileT" target="_blank" class="donation-link" title="Support the developer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span>Support the developer</span>
+      </a>
+    </footer>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

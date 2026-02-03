@@ -1,0 +1,25 @@
+{
+  "name": "watch-together-extension",
+  "version": "1.0.0",
+  "description": "Watch videos together in sync across YouTube, Netflix, and Crunchyroll",
+  "type": "module",
+  "scripts": {
+    "build": "node build.js",
+    "build:prod": "node build.js --prod",
+    "release": "npm run build:prod && node create-release.js",
+    "watch": "node build.js --watch",
+    "clean": "rimraf dist",
+    "test": "vitest",
+    "test:run": "vitest run"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/node": "^20.12.7",
+    "archiver": "^7.0.1",
+    "esbuild": "^0.20.2",
+    "rimraf": "^5.0.5",
+    "sharp": "^0.34.5",
+    "typescript": "^5.4.5",
+    "vitest": "^4.0.18"
+  }
+}
