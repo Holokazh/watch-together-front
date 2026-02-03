@@ -162,8 +162,8 @@ Si aucun onglet actif ne reste sur une plateforme supportée, l'utilisateur est 
 
 ## License
 
-À définir
+MIT License
 
 ## Contact
 
-[Votre email]
+contact@virgiletomadon.fr
