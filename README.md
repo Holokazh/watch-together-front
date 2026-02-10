@@ -42,10 +42,7 @@ extension/
 │   │   ├── youtube.ts       # Adapter YouTube
 │   │   ├── netflix.ts       # Adapter Netflix
 │   │   ├── crunchyroll.ts   # Adapter Crunchyroll
-│   │   ├── vimeo.ts         # Adapter Vimeo
-│   │   ├── dailymotion.ts   # Adapter Dailymotion
 │   │   ├── adn.ts           # Adapter ADN
-│   │   ├── animesama.ts     # Adapter Anime-Sama
 │   │   ├── twitch.ts        # Adapter Twitch
 │   │   ├── disneyplus.ts    # Adapter Disney+
 │   │   ├── primevideo.ts    # Adapter Prime Video
@@ -75,10 +72,7 @@ extension/
 5. **Amazon Prime Video** - Gestion DRM
 6. **Max (HBO Max)** - Gestion DRM
 7. **Twitch** - Support live et VOD
-8. **Vimeo** - API officielle Vimeo Player
-9. **Dailymotion** - SDK officiel
-10. **ADN** - HTML5 natif
-11. **Anime-Sama** - HTML5 natif
+8. **ADN** - HTML5 natif
 
 ## Fonctionnalités
 
@@ -97,7 +91,7 @@ extension/
 Le serveur WebSocket est configuré dans `src/background/websocket.ts` :
 
 ```typescript
-const WS_SERVER_URL = 'ws://watch-together-backend-production.up.railway.app';
+const WS_SERVER_URL = 'wss://watch-together-backend-production.up.railway.app';
 ```
 
 ## Soumission au Chrome Web Store

@@ -62,26 +62,8 @@ const buildConfigs = [
   },
   {
     ...commonOptions,
-    entryPoints: [join(srcDir, 'content', 'vimeo.ts')],
-    outfile: join(distDir, 'content', 'vimeo.js'),
-    format: 'iife',
-  },
-  {
-    ...commonOptions,
-    entryPoints: [join(srcDir, 'content', 'dailymotion.ts')],
-    outfile: join(distDir, 'content', 'dailymotion.js'),
-    format: 'iife',
-  },
-  {
-    ...commonOptions,
     entryPoints: [join(srcDir, 'content', 'adn.ts')],
     outfile: join(distDir, 'content', 'adn.js'),
-    format: 'iife',
-  },
-  {
-    ...commonOptions,
-    entryPoints: [join(srcDir, 'content', 'animesama.ts')],
-    outfile: join(distDir, 'content', 'animesama.js'),
     format: 'iife',
   },
   {

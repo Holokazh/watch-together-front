@@ -108,10 +108,7 @@ async function checkIfSupportedSite(): Promise<boolean> {
       'youtube.com',
       'netflix.com',
       'crunchyroll.com',
-      'vimeo.com',
-      'dailymotion.com',
       'animedigitalnetwork.fr',
-      'anime-sama.si',
       'twitch.tv',
       'disneyplus.com',
       'primevideo.com',
@@ -167,20 +164,8 @@ function showUnsupportedSiteWarning(): void {
             <span class="platform-name">Crunchyroll</span>
           </button>
 
-          <button class="platform-btn vimeo-btn" data-url="https://www.vimeo.com">
-            <span class="platform-name">Vimeo</span>
-          </button>
-
-          <button class="platform-btn dailymotion-btn" data-url="https://www.dailymotion.com">
-            <span class="platform-name">Dailymotion</span>
-          </button>
-
           <button class="platform-btn adn-btn" data-url="https://animedigitalnetwork.fr">
             <span class="platform-name">ADN</span>
-          </button>
-
-          <button class="platform-btn animesama-btn" data-url="https://anime-sama.si">
-            <span class="platform-name">AnimeSama</span>
           </button>
 
           <button class="platform-btn twitch-btn" data-url="https://www.twitch.tv">

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Watch Together",
   "version": "1.0.0",
-  "description": "Watch videos together in sync across 12+ streaming platforms",
+  "description": "Watch videos together in sync across 8 streaming platforms",
   "permissions": [
     "tabs",
     "activeTab",
@@ -16,15 +16,8 @@
     "https://www.crunchyroll.com/*",
     "https://crunchyroll.com/*",
     "https://static.crunchyroll.com/*",
-    "https://vimeo.com/*",
-    "https://www.vimeo.com/*",
-    "https://player.vimeo.com/*",
-    "https://dailymotion.com/*",
-    "https://www.dailymotion.com/*",
     "https://animedigitalnetwork.fr/*",
     "https://www.animedigitalnetwork.fr/*",
-    "https://anime-sama.si/*",
-    "https://www.anime-sama.si/*",
     "https://twitch.tv/*",
     "https://www.twitch.tv/*",
     "https://disneyplus.com/*",
@@ -36,8 +29,7 @@
     "https://max.com/*",
     "https://www.max.com/*",
     "https://play.max.com/*",
-    "ws://localhost:8080/*",
-    "wss://localhost:8080/*"
+    "wss://watch-together-backend-production.up.railway.app/*"
   ],
   "background": {
     "service_worker": "background/websocket.js",
@@ -66,23 +58,8 @@
       "run_at": "document_idle"
     },
     {
-      "matches": ["https://vimeo.com/*", "https://www.vimeo.com/*"],
-      "js": ["content/vimeo.js"],
-      "run_at": "document_idle"
-    },
-    {
-      "matches": ["https://dailymotion.com/*", "https://www.dailymotion.com/*"],
-      "js": ["content/dailymotion.js"],
-      "run_at": "document_idle"
-    },
-    {
       "matches": ["https://animedigitalnetwork.fr/*", "https://www.animedigitalnetwork.fr/*"],
       "js": ["content/adn.js"],
-      "run_at": "document_idle"
-    },
-    {
-      "matches": ["https://anime-sama.si/*", "https://www.anime-sama.si/*"],
-      "js": ["content/animesama.js"],
       "run_at": "document_idle"
     },
     {

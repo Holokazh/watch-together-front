@@ -29,7 +29,7 @@ import {
 } from '../shared/events.js';
 
 // WebSocket server URL
-const WS_SERVER_URL = 'ws://watch-together-backend-production.up.railway.app';
+const WS_SERVER_URL = 'wss://watch-together-backend-production.up.railway.app';
 
 // Global session state (persists across all tabs)
 interface SessionState {
@@ -1375,10 +1375,7 @@ function isSupportedPlatform(url: string | undefined): boolean {
   return url.includes('youtube.com') ||
          url.includes('netflix.com') ||
          url.includes('crunchyroll.com') ||
-         url.includes('vimeo.com') ||
-         url.includes('dailymotion.com') ||
          url.includes('animedigitalnetwork.fr') ||
-         url.includes('anime-sama.si') ||
          url.includes('twitch.tv') ||
          url.includes('disneyplus.com') ||
          url.includes('primevideo.com') ||
